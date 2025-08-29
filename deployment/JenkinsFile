@@ -34,5 +34,16 @@ pipeline{
                 }
             }
         }
+        stage('Docker Build'){
+            steps{
+                script{
+                    if(isUnix()){
+                        sh "docker build -t VictoriaRam08/test ."
+                    }else{
+                        bat "docker build -t VictoriaRam08/test ."
+                    }
+                }
+            }
+        }
     }
 }
